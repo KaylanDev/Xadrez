@@ -4,6 +4,7 @@
 using System.Globalization;
 using System.Runtime.InteropServices.Marshalling;
 using tabuleiro;
+using xadrex;
 
 namespace Xadrez_Console
 {
@@ -34,7 +35,13 @@ namespace Xadrez_Console
             }
             Console.Write("  a b c d e f g h");
         }
-
+        public static PosicaoXadrez LerPosicaXadrex()
+        {
+            string  s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+            return new PosicaoXadrez(coluna, linha);
+        }
         public static void ImprimirPeca(Peca peca)
         {
             if (peca.cor == Cor.Branca)

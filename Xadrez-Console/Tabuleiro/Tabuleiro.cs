@@ -25,6 +25,7 @@ namespace tabuleiro
         {
             return pecas[pos.Linha, pos.Coluna];
         }
+
         public void ColocarPeca(Peca p, Posicao pos)
         {
             if (existirPeca(pos))
@@ -35,6 +36,21 @@ namespace tabuleiro
             p.posicao = pos;
         }
 
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (peca(pos) == null)
+            {
+                return null;
+            }
+
+            Peca aux = peca(pos);
+            aux.posicao = null;
+            pecas[pos.Linha, pos.Coluna] = null;
+                return aux;
+        }
+
+
+        //Validacoes
         public bool existirPeca(Posicao pos)
         {
             validadePosicao(pos);
