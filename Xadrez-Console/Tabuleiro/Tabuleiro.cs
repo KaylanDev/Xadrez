@@ -10,15 +10,20 @@ namespace tabuleiro
     internal class Tabuleiro
     {
         public int Linha { get; set; }
-        public int Colunas { get; set; }
+        public int Coluna { get; set; }
         public Peca[,] pecas { get; private set; }
 
         public Tabuleiro() { }
         public Tabuleiro(int linha, int colunas)
         {
             Linha = linha;
-            Colunas = colunas;
+            Coluna = colunas;
             pecas = new Peca[linha, colunas];
+        }
+        public Peca peca(int linha, int coluna)
+        {
+            
+            return pecas[linha, coluna];
         }
 
         public Peca peca(Posicao pos)
@@ -59,7 +64,7 @@ namespace tabuleiro
 
         public bool posicaoValida(Posicao pos)
         {
-            if (pos.Linha < 0 || pos.Linha >= Linha || pos.Coluna < 0 || pos.Coluna >= Colunas)
+            if (pos.Linha < 0 || pos.Linha >= Linha || pos.Coluna < 0 || pos.Coluna >= Coluna)
             {
                 return false;
             }

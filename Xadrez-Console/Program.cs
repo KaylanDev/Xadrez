@@ -10,10 +10,17 @@ try
     {
         Console.Clear();
         Tela.ImprimirTabuleiro(partida._tab);
+
         Console.WriteLine();
         Console.Write("Origem: ");
-       Posicao origem = Tela.LerPosicaXadrex().ToPosicao();
-        Console.WriteLine("Destino: ");
+        Posicao origem = Tela.LerPosicaXadrex().ToPosicao();
+
+        bool[,] posicoesPossiveis = partida._tab.peca(origem).movimentosPossiveis();
+
+        Console.Clear();
+        Tela.ImprimirTabuleiro(partida._tab, posicoesPossiveis);
+        Console.WriteLine();
+        Console.Write("Destino: ");
         Posicao destino = Tela.LerPosicaXadrex().ToPosicao();
 
         partida.ExecutarMovimento(origem, destino);
